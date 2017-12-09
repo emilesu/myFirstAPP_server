@@ -1,7 +1,7 @@
 class Admin::ArticlesController < AdminController
 
   def index
-    @articles = Article.all.order("creacted_at DESC")
+    @articles = Article.all.order("created_at DESC")
   end
 
   def show
@@ -17,7 +17,7 @@ class Admin::ArticlesController < AdminController
     @article.user = current_user
 
     if @article.save
-      redirect_to admin_article_path
+      redirect_to admin_articles_path
     else
       render :new
     end
@@ -31,7 +31,7 @@ class Admin::ArticlesController < AdminController
     @articles = Article.find(params[:id])
 
     if @article.update(article_params)
-      redirect_to admin_article_path
+      redirect_to admin_articles_path
     else
       render :edit
     end
@@ -40,7 +40,7 @@ class Admin::ArticlesController < AdminController
   def destroy
     @article = Article.find(params[:id])
     @article.destroy
-    redirect_to admin_article_path
+    redirect_to admin_articles_path
   end
 
 
