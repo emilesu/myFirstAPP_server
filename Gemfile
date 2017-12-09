@@ -38,6 +38,10 @@ gem 'devise'
 gem 'simple_form'
 gem 'font-awesome-rails'
 
+# 上传图片
+gem 'carrierwave'
+gem 'mini_magick'
+
 # 编辑器
 gem 'ckeditor'
 

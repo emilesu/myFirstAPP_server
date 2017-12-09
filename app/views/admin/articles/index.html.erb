@@ -23,7 +23,7 @@
           <td><%= article.id %></td>
           <td><%= article.title %></td>
           <td><%= article.intro %></td>
-          <td><%= article.thumbnail %></td>
+          <td><%= image_tag(article.thumbnail.thumb.url) %></td>
           <td><%= article.created_at %></td>
           <td>
             <%= link_to("编辑", edit_admin_article_path(article), :class => "btn btn-xs btn-default" )%>
