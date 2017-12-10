@@ -41,6 +41,9 @@ gem 'font-awesome-rails'
 # 上传图片
 gem 'carrierwave'
 gem 'mini_magick'
+# 七牛云
+gem 'carrierwave-qiniu'
+gem 'qiniu-rs'
 
 # 编辑器
 gem 'ckeditor'
