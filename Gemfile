@@ -47,6 +47,7 @@ gem 'qiniu-rs'
 
 # 编辑器
 gem 'ckeditor'
+gem 'figaro'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
