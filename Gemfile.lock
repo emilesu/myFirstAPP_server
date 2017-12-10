@@ -66,6 +66,7 @@ GEM
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
+    carrierwave-i18n (0.2.0)
     carrierwave-qiniu (0.1.5)
       carrierwave
       qiniu (~> 6.2.4)
@@ -260,6 +261,7 @@ DEPENDENCIES
   byebug
   capybara (~> 2.13)
   carrierwave
+  carrierwave-i18n
   carrierwave-qiniu
   ckeditor
   coffee-rails (~> 4.2)

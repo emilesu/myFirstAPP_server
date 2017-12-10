@@ -24,7 +24,7 @@
           <td><%= article.title %></td>
           <td><%= article.intro %></td>
           <td><%= image_tag(article.article_cover.thumb.url) %></td>
-          <td><%= article.created_at %></td>
+          <td><%= article.created_at.strftime("%Y/%m/%d %H:%M:%S") %></td>
           <td>
             <%= link_to("编辑", edit_admin_article_path(article), :class => "btn btn-xs btn-default" )%>
             <%= link_to("删除", admin_article_path(article), method: :delete, :class => "btn btn-xs btn-default", data: { confirm: "确定删除" }) %>

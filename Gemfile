@@ -9,7 +9,7 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -43,11 +43,12 @@ gem 'carrierwave'
 gem 'mini_magick'
 # 七牛云
 gem 'carrierwave-qiniu'
+gem 'carrierwave-i18n'
 gem 'qiniu-rs'
+gem 'figaro'
 
 # 编辑器
 gem 'ckeditor'
-gem 'figaro'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -59,6 +60,8 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'awesome_rails_console'
+
+  gem 'sqlite3'
 end
 
 group :development do

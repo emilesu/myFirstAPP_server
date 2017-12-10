@@ -10,4 +10,8 @@ class Article < ApplicationRecord
 
   # 与 user 关系
   belongs_to :user
+
+  def date_format(article)
+    time_ago_in_words(article.created_at)
+  end
 end

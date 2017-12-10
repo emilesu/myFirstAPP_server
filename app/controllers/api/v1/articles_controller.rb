@@ -8,9 +8,9 @@ class Api::V1::ArticlesController < ApiController
           :articleId => article.id,
           :title => article.title,
           :intro => article.intro,
-          :thunbnail => article.article_cover.medium,
+          :article_cover => article.article_cover.thumb,
           :description => article.description,
-          :date => article.created_at,
+          :date => article.created_at.to_s(:number),
           :url => api_v1_article_url(article.id)
         }
       }
@@ -23,10 +23,10 @@ class Api::V1::ArticlesController < ApiController
       :articleId => @article.id,
       :title => @article.title,
       :intro => @article.intro,
-      :thunbnail => @article.article_cover.medium,
+      :article_cover => @article.article_cover.thumb,
       :description => @article.description,
-      :date => time_ago_in_words(@article.creacted_at),
-      :url => api_vi_article_url(@article.id)
+      :date => @article.created_at.to_s(:number),
+      :url => api_v1_article_url(@article.id)
     }
   end
 
