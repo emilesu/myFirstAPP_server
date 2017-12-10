@@ -28,7 +28,7 @@ class Admin::ArticlesController < AdminController
   end
 
   def update
-    @articles = Article.find(params[:id])
+    @article = Article.find(params[:id])
 
     if @article.update(article_params)
       redirect_to admin_articles_path
@@ -48,7 +48,7 @@ class Admin::ArticlesController < AdminController
   private
 
   def article_params
-    params.require(:article).permit(:title, :intro, :thunbnail, :description, :user_id)
+    params.require(:article).permit(:title, :intro, :article_cover, :description, :user_id)
   end
 
 end
