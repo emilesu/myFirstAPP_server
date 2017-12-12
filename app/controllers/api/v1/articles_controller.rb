@@ -10,7 +10,7 @@ class Api::V1::ArticlesController < ApiController
           :intro => article.intro,
           :article_cover => article.article_cover.thumb,
           :description => article.description,
-          :date => article.created_at.to_s(:number),
+          :date => article.created_at.to_i,
           :url => api_v1_article_url(article.id)
         }
       }
@@ -22,10 +22,10 @@ class Api::V1::ArticlesController < ApiController
     render :json => {
       :articleId => @article.id,
       :title => @article.title,
-      :intro => @article.intro,
+      # :intro => @article.intro,
       :article_cover => @article.article_cover.thumb,
       :description => @article.description,
-      :date => @article.created_at.to_s(:number),
+      :date => @article.created_at.to_i,
       :url => api_v1_article_url(@article.id)
     }
   end
