@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
       # review api
       get "/articles/:article_id/reviews" => "reviews#index", :as => :reviews
-      post "/articles/:article_id" => "reviews#create", :as => :create_review
+      post "/articles/:article_id/reviews" => "reviews#create", :as => :create_review
     end
   end
 
