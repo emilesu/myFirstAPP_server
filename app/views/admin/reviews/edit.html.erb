@@ -1,0 +1,12 @@
+<h3>编辑回复内容:</h3>
+
+<div>
+  <%= simple_form_for [:admin, @article, @review] do |f|%>
+
+    <div class="form-group">
+      <%= f.input :content, :label => "输入回复" %>
+      <%= f.submit "提交", :class => "btn btn-sm btn-default", :data => { disable_with: "Submiting..." } %>
+    </div>
+
+  <% end %>
+</div>
