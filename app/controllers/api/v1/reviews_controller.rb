@@ -33,7 +33,8 @@ class Api::V1::ReviewsController < ApiController
       }
     else
       render :json => {
-        :message => "回复失败", :errors => @review.errors
+        :message => "回复失败",
+        :errors => @review.errors
       }, :status => 400
     end
   end
