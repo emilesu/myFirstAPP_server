@@ -7,6 +7,9 @@ class User < ApplicationRecord
   #与 article 关系
   has_many :articles, dependent: :destroy
 
+  # 与 review 关系
+  has_many :reviews
+
   #emails 用户名缩写
   def display_name
     self.email.split("@").first
