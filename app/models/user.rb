@@ -15,4 +15,13 @@ class User < ApplicationRecord
     self.email.split("@").first
   end
 
+  # 给 user 加上 token
+  before_create :generate_authentication_token
+
+  def generate_authentication_token
+    self.authentication_token = Devise.friendly_token
+  end
+
+  # ---
+
 end

@@ -11,7 +11,7 @@ class Api::V1::ReviewsController < ApiController
           :user => review.user.email,
           :content => review.content,
           :date => review.created_at.to_i,
-          :url => api_v1_reviews_path(review.id)
+          :url => api_v1_reviews_path(@article)
         }
       }
     }
@@ -20,10 +20,11 @@ class Api::V1::ReviewsController < ApiController
   def create
     @article = Article.find(params[:article_id])
     @review = Review.new(
-      :article_id => @article.id,
-      :user => current_user,
       :content => params[:content]
     )
+
+    @review.article = @article
+    @review.user = current_user
 
     if @review.save
       render :json => {

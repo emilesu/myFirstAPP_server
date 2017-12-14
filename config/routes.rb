@@ -9,7 +9,7 @@ Rails.application.routes.draw do
       get "/articles/:id" => "articles#show", :as => :article
 
       # review api
-      get "/articles/:article_id/reviews" => "reviews#index", :as => :reviews
+      get "/articles/:article_id/reviews/" => "reviews#index", :as => :reviews
       post "/articles/:article_id/reviews" => "reviews#create", :as => :create_review
     end
   end
