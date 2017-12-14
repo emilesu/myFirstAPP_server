@@ -16,6 +16,10 @@ Rails.application.routes.draw do
       post "/signup" => "auth#signup"
       post "/login" => "auth#login"
       post "/logout" => "auth#logout"
+
+      #user 资料更新 api
+      get "/me" => "users#show", :as => :user
+      patch "/me" => "users#update", :as => :update_user
     end
   end
 

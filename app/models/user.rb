@@ -22,6 +22,9 @@ class User < ApplicationRecord
     self.authentication_token = Devise.friendly_token
   end
 
+  #头像上传
+  mount_uploader :avatar, AvatarUploader
+
   # ---
 
 end
