@@ -1,5 +1,7 @@
 class Api::V1::ReviewsController < ApiController
 
+  before_action :authenticate_user!, :only => [:create]
+
   def index
     @article = Article.find(params[:article_id])
     @reviews = @article.reviews.order("created_at DESC")
@@ -29,7 +31,7 @@ class Api::V1::ReviewsController < ApiController
     if @review.save
       render :json => {
         :articleId => @article.id,
-        :userId => @review.user.id,
+        :user => @review.user.email,
         :content => @review.content
       }
     else

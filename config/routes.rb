@@ -11,6 +11,11 @@ Rails.application.routes.draw do
       # review api
       get "/articles/:article_id/reviews/" => "reviews#index", :as => :reviews
       post "/articles/:article_id/reviews" => "reviews#create", :as => :create_review
+
+      # user 注册/登入/登出 api
+      post "/signup" => "auth#signup"
+      post "/login" => "auth#login"
+      post "/logout" => "auth#logout"
     end
   end
 
