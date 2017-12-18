@@ -12,7 +12,7 @@ class Article < ApplicationRecord
   belongs_to :user
 
   # 与 review 关系
-  has_many :reviews
+  has_many :reviews, dependent: :destroy 
 
   def date_format(article)
     time_ago_in_words(article.created_at)
