@@ -6,14 +6,16 @@ class Api::V1::ReviewsController < ApiController
     @article = Article.find(params[:article_id])
     @reviews = @article.reviews.order("created_at DESC")
     render :json => {
+      :review_count => @reviews.count,
       :data => @reviews.map{ |review|
         {
           :articleId => @article.id,
           :reviewId => review.id,
-          :user => review.user.email,
           :content => review.content,
+          :user_name => review.user.display_name,
+          :user_avatar => review.user.avatar.thumb,
           :date => review.created_at.to_i,
-          :url => api_v1_reviews_path(@article)
+          # :url => api_v1_reviews_path(@article)
         }
       }
     }
@@ -30,8 +32,8 @@ class Api::V1::ReviewsController < ApiController
 
     if @review.save
       render :json => {
-        :articleId => @article.id,
-        :user => @review.user.email,
+        :article_id => @article.id,
+        :user_id => @review.user.id,
         :content => @review.content
       }
     else
