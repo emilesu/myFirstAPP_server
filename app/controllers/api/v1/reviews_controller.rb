@@ -1,6 +1,7 @@
 class Api::V1::ReviewsController < ApiController
 
-  before_action :authenticate_user!, :only => [:create]
+  # 允许未登录匿名评论
+  # before_action :authenticate_user!, :only => [:create]
 
   def index
     @article = Article.find(params[:article_id])
@@ -12,8 +13,8 @@ class Api::V1::ReviewsController < ApiController
           :articleId => @article.id,
           :reviewId => review.id,
           :content => review.content,
-          :user_name => review.user.display_name,
-          :user_avatar => review.user.avatar.thumb,
+          :user_name => review.user.try(:display_name),
+          :user_avatar => review.user.try(:avatar).try(:thumb),
           :date => review.created_at.to_i,
           # :url => api_v1_reviews_path(@article)
         }
@@ -33,7 +34,7 @@ class Api::V1::ReviewsController < ApiController
     if @review.save
       render :json => {
         :article_id => @article.id,
-        :user_id => @review.user.id,
+        :user_id => @review.user.try(:id),
         :content => @review.content
       }
     else
